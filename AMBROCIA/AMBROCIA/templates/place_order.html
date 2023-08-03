@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ambrocias Restaurant - Place Order</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="place-order">
+        <div class="container">
+            <h2>Place Order</h2>
+            <form action="{{ url_for('generate_bill') }}" method="post">
+                <div class="billing-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" name="card_number" required>
+
+                    <div class="order-items">
+                        <h3>Order Items:</h3>
+                        <div class="order-item">
+                            <img src="{{ url_for('static', filename='indian-dish-1.jpg') }}" alt="Indian Dish 1">
+                            <h4>Butter Chicken</h4>
+                            <p>Price: &#8377;300</p>
+                            <input type="number" name="quantity_butter_chicken" min="1" value="0">
+                        </div>
+                        <div class="order-item">
+                            <img src="{{ url_for('static', filename='indian-dish-2.jpg') }}" alt="Indian Dish 2">
+                            <h4>Paneer Tikka</h4>
+                            <p>Price: &#8377;250</p>
+                            <input type="number" name="quantity_paneer_tikka" min="1" value="0">
+                        </div>
+                        <div class="order-item">
+                            <img src="{{ url_for('static', filename='indian-dish-3.jpg') }}" alt="Indian Dish 3">
+                            <h4>Masala Dosa</h4>
+                            <p>Price: &#8377;150</p>
+                            <input type="number" name="quantity_masala_dosa" min="1" value="0">
+                        </div>
+                        <div class="order-item">
+                            <img src="{{ url_for('static', filename='indian-dish-4.jpg') }}" alt="Indian Dish 4">
+                            <h4>Chicken Biryani</h4>
+                            <p>Price: &#8377;250</p>
+                            <input type="number" name="quantity_chicken_biryani" min="1" value="0">
+                        </div>
+                        <div class="order-item">
+                            <img src="{{ url_for('static', filename='indian-dish-5.jpg') }}" alt="Indian Dish 5">
+                            <h4>Palak Paneer</h4>
+                            <p>Price: &#8377;200</p>
+                            <input type="number" name="quantity_palak_paneer" min="1" value="0">
+                        </div>
+                        <div class="order-item">
+                            <img src="{{ url_for('static', filename='indian-dish-6.jpg') }}" alt="Indian Dish 6">
+                            <h4>Gulab Jamun</h4>
+                            <p>Price: &#8377;100</p>
+                            <input type="number" name="quantity_gulab_jamun" min="1" value="0">
+                        </div>
+                    </div>
+
+                    <button type="submit">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Ambrocias Restaurant. All rights reserved.</p>
+    </footer>
+</body>
+</html>
