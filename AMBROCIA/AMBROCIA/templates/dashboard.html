@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ambrocias Restaurant</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function search() {
+            var query = document.getElementById("searchInput").value;
+            var elements = document.getElementsByTagName("*");
+
+            for (var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                if (element.textContent.includes(query)) {
+                    element.scrollIntoView({ behavior: "smooth", block: "center" });
+                    return; // Stop searching after finding the first match
+                }
+            }
+
+            alert("No results found for: " + query);
+            document.getElementById("searchInput").value = "";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/logout">Logout</a></li>
+                <li><a href="{{ url_for('place_order') }}">Place Order</a></li> 
+                <li><a href="{{ url_for('billing') }}">Billing</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#popular-dishes">Popular Dishes</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Enter Food Item" class="search-button">
+            <button onclick="search()" class="search-button">Search</button>
+        </div>
+    </header>
+    <section id="hero">
+        <div class="hero-content">
+            <img src="{{ url_for('static', filename='hero-image.jpg') }}" alt="hero-image">
+            <h1 class="outlined-text">Welcome to Ambrocia's Restaurant</h1>
+            <p class="outlined-text">Delicious dishes crafted with passion.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Welcome to Ambrocias, where culinary delights and warm hospitality come together to create a memorable dining experience.</p>
+
+            <p>At Ambrocias, we take pride in offering a culinary journey like no other. Our team of talented chefs crafts each dish with a passion for flavors, sourcing only the freshest and finest ingredients. From the first bite to the last, our menu is designed to tantalize your taste buds and leave you craving for more.</p>
+
+            <p>Beyond our delectable cuisine, we believe in creating a welcoming atmosphere that reflects our dedication to exceptional service. Our friendly and attentive staff are committed to ensuring your dining experience is nothing short of extraordinary. Whether you're celebrating a special occasion, enjoying a night out with loved ones, or simply seeking a memorable meal, we strive to exceed your expectations.</p>
+
+            <p>At Ambrocias, we understand that dining is not just about the food, but also about the ambiance. Our thoughtfully designed interior showcases a blend of modern elegance and cozy charm, providing a comfortable setting for you to relax and indulge in culinary delights. Whether you prefer an intimate table for two or a gathering with friends and family, we have the perfect space to accommodate your needs.</p>
+        </div>
+    </section>
+
+    <section id="popular-dishes">
+        <div class="container">
+            <h2>Popular Dishes</h2>
+            <div class="menu-items">
+                
+                <div class="menu-item">
+                    <img src="{{ url_for('static', filename='indian-dish-1.jpg') }}" alt="Indian Dish 1">
+                    <h3>Butter Chicken</h3>
+                    <p>Price: &#8377;300</p>
+                </div>
+                <div class="menu-item">
+                    <img src="{{ url_for('static', filename='indian-dish-2.jpg') }}" alt="Indian Dish 2">
+                    <h3>Paneer Tikka</h3>
+                    <p>Price: &#8377;250</p>
+                </div>
+                <div class="menu-item">
+                    <img src="{{ url_for('static', filename='indian-dish-3.jpg') }}" alt="Indian Dish 3">
+                    <h3>Masala Dosa</h3>
+                    <p>Price: &#8377;150</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="container">
+            <h2>Menu</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="{{ url_for('static', filename='indian-dish-4.jpg') }}" alt="Indian Dish 4">
+                    <h3>Chicken Biryani</h3>
+                    <p>Price: &#8377;250</p>
+                </div>
+                <div class="menu-item">
+                    <img src="{{ url_for('static', filename='indian-dish-5.jpg') }}" alt="Indian Dish 5">
+                    <h3>Palak Paneer</h3>
+                    <p>Price: &#8377;200</p>
+                </div>
+                <div class="menu-item">
+                    <img src="{{ url_for('static', filename='indian-dish-6.jpg') }}" alt="Indian Dish 6">
+                    <h3>Gulab Jamun</h3>
+                    <p>Price: &#8377;100</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Kelambakkam, No.21, Park, Town, </p>
+            <p>Main Road, Kelambakkam, </p>
+            <p>Chennai - 603103</p>
+            <p>Contact Number:- +(91)-9444254893</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Ambrocias Restaurant. All rights reserved.</p>
+    </footer>
+</body>
+</html>

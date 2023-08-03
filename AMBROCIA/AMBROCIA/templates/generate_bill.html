@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Bill</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Generated Bill</h2>
+        <div class="bill-details">
+            <h3>Order Details</h3>
+            <p><strong>Customer Name:</strong> {{ customer_name }}</p>
+            <p><strong>Items:</strong></p>
+            <ul>
+                {% for item in items %}
+                    <li>{{ item.name }} - {{ item.price }} INR</li>
+                {% endfor %}
+            </ul>
+            <p><strong>Total Amount:</strong> {{ total_amount }} INR</p>
+        </div>
+    </div>
+</body>
+</html>
